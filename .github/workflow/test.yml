@@ -1,0 +1,23 @@
+name:  Sample Hello world
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      message: Hello world
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: print the message
+      run: "echo $env:message"
+    - name: print the message local
+      run: "echo $env:message"
+      env:
+        message: Hello world local
